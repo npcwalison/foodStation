@@ -1,5 +1,5 @@
 ### Food Station
-<dd></dd>
+<dd>Uma lanchonete com muitos clientes sempre acaba acumulando pedido, anotar esses pedidos em papel pode fazer com que tudo fique uma bagunça se não organizar com frequência. Para resolver isso podemos usar um sistema que anota os pedidos e faz a impresão das notas quando nescessairo, melhorando a organização e poupando tempo.</dd>
 
 #### DEPENDÊNCIAS
 <ol>
