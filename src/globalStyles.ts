@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
   }
   .body-container {
     width: 100%;
-    height: calc(100% - 128px);
+    height: calc(100% - 108px);
     overflow-y: auto;
     padding: 0 10px;
   }

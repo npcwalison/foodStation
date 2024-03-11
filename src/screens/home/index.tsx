@@ -2,7 +2,6 @@ import { Container } from './styles';
 
 
 const HomeScreen = () => {
-
     function handleSubmit(e: any) {
         e.preventDefault();
         console.log('Você clicou em enviar.');
