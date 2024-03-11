@@ -27,6 +27,7 @@ const Container = styled.div`
             #logo {
                 color: #E39B1F;
                 font-weight: bold;
+                font-size: 20px;
             }
         }
         button {
@@ -45,7 +46,7 @@ const Container = styled.div`
     //nav-menu
     nav#menu {
         width: 100%;
-        height: 60px;
+        height: 40px;
         padding: 0 20px;
         display: flex;
         justify-content: center;
