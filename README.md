@@ -26,13 +26,15 @@ Este aplicativo é útil para estabelecimentos de fast-food, food trucks ou rest
 
 ## Tecnologias Utilizadas
 
-- Tauri
-- ReactJS
-- Styled-Components
-- react-router-dom
-- react-icons
-- Redis
-- Axios
+| Tecnologia           | Biblioteca/Repositório                                         |
+|----------------------|----------------------------------------------------------------|
+| Tauri                | [Site oficial](https://tauri.studio/)                          |
+| ReactJS              | [GitHub](https://github.com/facebook/react)                    |
+| Styled-Components    | [GitHub](https://github.com/styled-components/styled-components) |
+| react-router-dom     | [GitHub](https://github.com/ReactTraining/react-router)        |
+| react-icons          | [GitHub](https://github.com/react-icons/react-icons)           |
+| Redis                | [Site oficial](https://redis.io/)                              |
+| Axios                | [GitHub](https://github.com/axios/axios)                       |
 
 ## Instruções de Instalação
 1. Clone o repositório.
