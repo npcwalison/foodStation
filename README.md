@@ -1,7 +1,7 @@
 # Burger Builder Desktop App
 
 ## Descrição
-O Burger Builder Desktop App é uma aplicação de desktop construída com Tauri, ReactJS, Styled-Components, react-router-dom, react-icons, redis e axios. Ele permite aos usuários criar e fazer pedidos de hambúrgueres personalizados através de um formulário intuitivo. Além disso, oferece uma tela de visualização de pedidos, onde os usuários podem acompanhar o status de seus pedidos e atualizá-los conforme necessário.
+O Burger Builder Desktop App foi inspirado na lógica de um projeto em Vue.js, no qual decidi converter para utilizar com ReactJS. Embora apenas a lógica do projeto original tenha sido aproveitada, o Burger Builder Desktop App foi expandido e adaptado para funcionar como um aplicativo desktop completo. Enquanto o projeto do curso é uma aplicação web, esta versão oferece recursos adicionais para funcionar em um ambiente de desktop. Este projeto foi desenvolvido com base no curso "[Curso de Vue 3 - Matheus Battisti - Hora de Codar](https://youtube.com/playlist?list=PLnDvRpP8BnezDglaAvtWgQXzsOmXUuRHL&si=1zcGCfxq0Q9rISWt)", que oferece uma abordagem prática para a construção de aplicativos web com Vue.js.
 
 ## Funcionalidades
 - Criação de hambúrgueres personalizados através de um formulário interativo.
