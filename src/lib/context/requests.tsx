@@ -14,7 +14,9 @@ type ArrayProps = {
 type AuthContextProps = {
   burgers: ArrayProps;
   setBurgers: React.Dispatch<React.SetStateAction<ArrayProps>>;
+  status: string[];
 }
+
 
 export const AuthContext = createContext<AuthContextProps>({} as AuthContextProps);
 
@@ -57,9 +59,15 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   ])
 
+  const status = [
+      "Solicitado",
+      "Em andamento",
+      "Finalizado"
+  ]
+
 
   return (
-    <AuthContext.Provider value={{ burgers, setBurgers }}>
+    <AuthContext.Provider value={{ burgers, setBurgers, status }}>
       <>{children}</>
     </AuthContext.Provider>
   )

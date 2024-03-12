@@ -3,9 +3,15 @@ import { Container } from './styles';
 import { AuthContext } from '../../lib/context/requests';
 import { useContext } from 'react';
 
-const FormScreen = () => {
-    const { burgers, setBurgers } = useContext(AuthContext);
 
+const FormScreen = () => {
+    const { burgers, setBurgers, status } = useContext(AuthContext);
+    //alinha os dado do array burgers com array status.
+    const handleChangeStatus = (index: any, newStatus: any) => {
+        const updatedBurgers = [...burgers];
+        updatedBurgers[index].status = newStatus;
+        setBurgers(updatedBurgers);
+    };
 
     return (
         <Container className='body-container'>
@@ -36,24 +42,14 @@ const FormScreen = () => {
                                     </ul>
                                 </td>
                                 <td>
-                                    <select id="cars" name="cars">
+                                    <select
+                                        value={item.status}
+                                        onChange={(e) => handleChangeStatus(index, e.target.value)}
+                                    >
                                         {
-                                            item.status === "Solicitado" ?
-                                                <option value="volvo" selected>Solicitado</option>
-                                                :
-                                                <option value="volvo">Solicitado</option>
-                                        }
-                                        {
-                                            item.status === "Em andamento" ?
-                                                <option value="saab" selected>Em Andamento</option>
-                                                :
-                                                <option value="saab">Em Produção</option>
-                                        }
-                                        {
-                                            item.status === "Finalizado" ?
-                                                <option value="fiat" selected>Finalizado</option>
-                                                :
-                                                <option value="fiat">Finalizado</option>
+                                            status.map((item) => (
+                                                <option value={item} key={item}>{item}</option>
+                                            ))
                                         }
                                     </select>
                                     <button>Cancelar</button>
