@@ -24,6 +24,16 @@ Uma lanchonete com muitos clientes sempre acaba acumulando pedidos, anotar esses
 ## Uso
 Este aplicativo é útil para estabelecimentos de fast-food, food trucks ou restaurantes que desejam oferecer aos clientes a conveniência de criar e personalizar seus próprios hambúrgueres, bem como para gerenciar eficientemente os pedidos recebidos.
 
+## Tecnologias Utilizadas
+
+- Tauri
+- ReactJS
+- Styled-Components
+- react-router-dom
+- react-icons
+- Redis
+- Axios
+
 ## Instruções de Instalação
 1. Clone o repositório.
 2. Instale as dependências usando `npm install`.
