@@ -111,8 +111,8 @@ const Header = () => {
             </div>
             <nav id="menu">
                 <ul>
-                    <li><a href="/" className={activeLink === '/' ? 'active' : ''}>Home</a></li>
-                    <li><a href="/form" className={activeLink === '/form' ? 'active' : ''}>Form</a></li>
+                    <li><a href="/" className={activeLink === '/' ? 'active' : ''}>Pedidos</a></li>
+                    <li><a href="/register-screen" className={activeLink === '/form' ? 'active' : ''}>Registrar</a></li>
                 </ul>
             </nav>
         </Container>

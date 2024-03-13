@@ -1,7 +1,7 @@
 import { Container } from './styles';
 
 
-const HomeScreen = () => {
+const RegisterScreen = () => {
     function handleSubmit(e: any) {
         e.preventDefault();
         console.log('Você clicou em enviar.');
@@ -56,4 +56,4 @@ const HomeScreen = () => {
 }
 
 
-export default HomeScreen;
+export default RegisterScreen;

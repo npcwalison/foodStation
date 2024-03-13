@@ -9,19 +9,19 @@ import Footer from "./components/footer";
 
 
 //import_screens
-import HomeScreen from "./screens/home";
-import FormScreen from "./screens/form";
+import RequestsScreen from "./screens/requests";
+import RegisterScreen from "./screens/register";
 
 
 //create_routes
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomeScreen />
+    element: <RequestsScreen />
   },
   {
-    path: "/form",
-    element: <FormScreen />
+    path: "/register-screen",
+    element: <RegisterScreen />
   }
 ])
 
