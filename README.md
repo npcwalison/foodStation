@@ -33,7 +33,7 @@ Este aplicativo é útil para estabelecimentos de fast-food, food trucks ou rest
 | Styled-Components    | [Site oficial](https://styled-components.com/) |
 | react-router-dom     | [Site oficial](https://reactrouter.com/en/main)        |
 | react-icons          | [Site oficial](https://react-icons.github.io/react-icons/)           |
-| Redis                | [Site oficial](https://redis.io/)                              |
+| Json-Server                | [Site oficial](https://www.npmjs.com/package/json-server)                              |
 | Axios                | [Site oficial](https://axios-http.com/)                       |
 
 ## Instruções de Instalação
