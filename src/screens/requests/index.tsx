@@ -8,10 +8,20 @@ const RequestsScreen = () => {
     const { burgers, setBurgers, status } = useContext(AuthContext);
     
     //alinha os dado do array burgers com array status.
-    const handleChangeStatus = (index: any, newStatus: any) => {
-        const updatedBurgers = [...burgers];
-        updatedBurgers[index].status = newStatus;
-        setBurgers(updatedBurgers);
+    const handleChangeStatus = async (event: any, id: any) => {
+        const option = event;
+
+        const dataJson = JSON.stringify({status: option});
+
+        const req = await fetch(`http://localhost:3000/burgers/${id}`, {
+          method: "PATCH",
+          headers: { "Content-Type" : "application/json" },
+          body: dataJson
+        });
+
+        const res = await req.json()
+
+        console.log(res)
     };
 
     return (
@@ -45,7 +55,7 @@ const RequestsScreen = () => {
                                 <td>
                                     <select
                                         value={item.status}
-                                        onChange={(e) => handleChangeStatus(index, e.target.value)}
+                                        onChange={(e) => handleChangeStatus(e.target.value, item.id)}
                                     >
                                         {
                                             status?.map((item, index) => (
