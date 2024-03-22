@@ -36,6 +36,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       }
     }
 
+    async function createNewRequest() {
+      try {
+        //teste
+      } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+      }
+    }
+
     const data = getIngredients();
 
     console.log(data)
