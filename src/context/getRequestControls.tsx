@@ -3,10 +3,9 @@
 
 import React, {
   createContext,
-  useState,
-  useEffect
+  useEffect,
+  useState
 } from 'react';
-import axios from 'axios';
 
 //usado para definir o array dentro do const
 type ArrayProps = {
@@ -24,14 +23,13 @@ type StatusProps = {
 }[]
 
 //usado para o const com value/setValue
-type AuthContextProps = {
+type RequestControlProps = {
   burgers: ArrayProps;
-  setBurgers: React.Dispatch<React.SetStateAction<ArrayProps>>;
   status: StatusProps;
 }
 
 
-export const AuthContext = createContext<AuthContextProps>({} as AuthContextProps);
+export const RequestControl = createContext<RequestControlProps>({} as RequestControlProps);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
@@ -39,33 +37,33 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const [status, setStatus] = useState([]);
 
+  
   useEffect(() => {
-    const fetchStatus = async () => {
-      try {
-        const response = await axios.get('http://localhost:3000/status');
-        setStatus(response.data);
-      } catch (error) {
-        console.error('Erro ao obter os dados dos ingredientes:', error);
-      }
-    };
+    //Resgata os pedidos
+    async function getPedidos() {
+      const req = await fetch('http://localhost:3000/burgers')
+      const data = await req.json()
+      setBurgers(data)
+  
+      // Resgata os status de pedidos
+      getStatus()
+    }
 
-    const fetchBurgers = async () => {
-      try {
-        const response = await axios.get('http://localhost:3000/burgers');
-        setBurgers(response.data);
-      } catch (error) {
-        console.error('Erro ao obter os dados dos ingredientes:', error);
-      }
-    };
+    // Resgata os dados dos Status
+    async function getStatus() {
+      const req = await fetch('http://localhost:3000/status')
+      const data = await req.json()
+      setStatus(data)
+    }
 
-    fetchBurgers();
-    fetchStatus();
+
+    getPedidos()
   }, [burgers, status]);
 
 
   return (
-    <AuthContext.Provider value={{ burgers, setBurgers, status }}>
+    <RequestControl.Provider value={{ burgers, status }}>
       <>{children}</>
-    </AuthContext.Provider>
+    </RequestControl.Provider>
   )
 }

@@ -1,11 +1,11 @@
 import { Container } from './styles';
 
-import { AuthContext } from '../../context/getRequestControls';
+import { RequestControl } from '../../context/getRequestControls';
 import { useContext } from 'react';
 
 
 const RequestsScreen = () => {
-    const { burgers, setBurgers, status } = useContext(AuthContext);
+    const { burgers, status } = useContext(RequestControl);
     
     //alinha os dado do array burgers com array status.
     const handleChangeStatus = async (event: any, id: any) => {

@@ -88,10 +88,10 @@
         "Salame",
         "Cebola roxa"
       ],
-      "status": "Finalizado"
+      "status": "Solicitado"
     },
     {
-      "id": "4",
+      "id": "2",
       "nome": "João Coelho",
       "carne": "Maminha",
       "pao": "3 Queijos",
@@ -100,6 +100,17 @@
         "Cebola roxa"
       ],
       "status": "Finalizado"
+    },
+    {
+      "id": "3",
+      "nome": "João Coelho",
+      "carne": "Maminha",
+      "pao": "3 Queijos",
+      "opcionais": [
+        "Salame",
+        "Cebola roxa"
+      ],
+      "status": "Em produção"
     }
   ]
 }
