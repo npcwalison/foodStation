@@ -2,63 +2,45 @@
 
 
 import React, {
-    createContext,
-    useEffect
-  } from 'react';
+  createContext,
+  useEffect,
+  useState
+} from 'react';
+
+
+export const DataForm = createContext<DataFormProps>({} as DataFormProps);
+
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+
+  useEffect(() => {
+    //Resgata os pedidos
+    async function getPedidos() {
+      const req = await fetch('http://localhost:3000/burgers')
+      const data = await req.json()
+      setBurgers(data)
+
+      // Resgata os status de pedidos
+      getStatus()
+    }
+  }, []);
+
+    //alinha os dado do array burgers com array status.
+    const handleChangeStatus = async (event: string, id: number) => {
+      const option = event;
   
-  //usado para definir o array dentro do const
-  type ArrayProps = {
-    id: number;
-    nome: string;
-    carne: string;
-    pao: string;
-    opcionais: string[];
-    status: string;
-  }[]
+      const dataJson = JSON.stringify({ status: option });
   
-  type StatusProps = {
-    id: number,
-    tipo: string
-  }[]
-  
-  //usado para o const com value/setValue
-  type AuthContextProps = {
-    burgers: ArrayProps;
-    status: StatusProps;
-  }
-  
-  
-  export const AuthContext = createContext<AuthContextProps>({} as AuthContextProps);
-  
-  export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  
-    const burgers = [
-      {
-        id: 'number',
-        nome: 'string',
-        carne: 'string',
-        pao: 'string',
-        opcionais: [
-          'tipo'
-        ],
-        status: 'string'
-      }
-    ];
-  
-    const status = [
-      {
-        id: 'number',
-        tipo: 'string'
-      }
-    ];
-  
-    useEffect(() => {
-    }, [burgers, status]);
-  
-  
-    return (
-      <AuthContext.Provider value={{ burgers, status }}>
-        <>{children}</>
-      </AuthContext.Provider>
-    )
-  }
+      await fetch(`http://localhost:3000/burgers/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: dataJson
+      });
+    };
+
+
+  return (
+    <DataForm.Provider value={{ 'value' }}>
+      <>{children}</>
+    </DataForm.Provider>
+  )
+}

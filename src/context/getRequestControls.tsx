@@ -22,10 +22,13 @@ type StatusProps = {
   tipo: string
 }[]
 
+
 //usado para o const com value/setValue
 type RequestControlProps = {
   burgers: ArrayProps;
   status: StatusProps;
+  deleteBurger: (id: number) => void;
+  handleChangeStatus: (event: string, id: number) => void
 }
 
 
@@ -37,14 +40,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const [status, setStatus] = useState([]);
 
-  
+
   useEffect(() => {
     //Resgata os pedidos
     async function getPedidos() {
       const req = await fetch('http://localhost:3000/burgers')
       const data = await req.json()
       setBurgers(data)
-  
+
       // Resgata os status de pedidos
       getStatus()
     }
@@ -60,9 +63,29 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     getPedidos()
   }, [burgers, status]);
 
+  const deleteBurger = async (id: number) => {
+
+    await fetch(`http://localhost:3000/burgers/${id}`, {
+      method: "DELETE"
+    });
+  }
+
+  //alinha os dado do array burgers com array status.
+  const handleChangeStatus = async (event: string, id: number) => {
+    const option = event;
+
+    const dataJson = JSON.stringify({ status: option });
+
+    await fetch(`http://localhost:3000/burgers/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: dataJson
+    });
+  };
+
 
   return (
-    <RequestControl.Provider value={{ burgers, status }}>
+    <RequestControl.Provider value={{ burgers, status, deleteBurger, handleChangeStatus }}>
       <>{children}</>
     </RequestControl.Provider>
   )

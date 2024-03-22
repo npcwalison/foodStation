@@ -5,24 +5,7 @@ import { useContext } from 'react';
 
 
 const RequestsScreen = () => {
-    const { burgers, status } = useContext(RequestControl);
-    
-    //alinha os dado do array burgers com array status.
-    const handleChangeStatus = async (event: any, id: any) => {
-        const option = event;
-
-        const dataJson = JSON.stringify({status: option});
-
-        const req = await fetch(`http://localhost:3000/burgers/${id}`, {
-          method: "PATCH",
-          headers: { "Content-Type" : "application/json" },
-          body: dataJson
-        });
-
-        const res = await req.json()
-
-        console.log(res)
-    };
+    const { burgers, status, deleteBurger, handleChangeStatus } = useContext(RequestControl);
 
     return (
         <Container className='body-container'>
@@ -63,7 +46,7 @@ const RequestsScreen = () => {
                                             ))
                                         }
                                     </select>
-                                    <button>Cancelar</button>
+                                    <button onClick={() => deleteBurger(item.id)}>Cancelar</button>
                                 </td>
                             </tr>
                         ))}
