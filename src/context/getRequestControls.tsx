@@ -34,7 +34,8 @@ type RequestControlProps = {
 
 export const RequestControl = createContext<RequestControlProps>({} as RequestControlProps);
 
-export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+//fornecedor da camada .index
+export const RequestProvider = ({ children }: { children: React.ReactNode }) => {
 
   const [burgers, setBurgers] = useState([]);
 

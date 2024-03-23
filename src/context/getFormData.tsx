@@ -24,7 +24,8 @@ type DataFormProps = {
 
 export const DataForm = createContext<DataFormProps>({} as DataFormProps);
 
-export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+//fornecedor da camada .index
+export const RegisterProvider = ({ children }: { children: React.ReactNode }) => {
 
   const [paes, setPaes] = useState<TypeProps>([
     {
