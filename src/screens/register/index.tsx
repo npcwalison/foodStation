@@ -2,34 +2,27 @@ import { useState, useContext } from 'react';
 import { DataForm } from '../../context/getFormData';
 import { Container } from './styles';
 
-
-
 const RegisterScreen = () => {
-    const { ingredients } = useContext(DataForm);
+    const { ingredients, createNewRequest } = useContext(DataForm);
 
-    //dados_coletados_do_formulario.
-    const [nomeCliente, setNomeCliente] = useState('');
-    const [paoSelecionado, setPaoSelecionado] = useState('');
-    const [carneSelecionada, setCarneSelecionada] = useState('');
-    const [opcionaisSelecionados, setOpcionaisSelecionados] = useState<string[]>([]);
+    // Dados coletados do formulário.
+    const [nome, setNome] = useState('');
+    const [pao, setPao] = useState('');
+    const [carne, setCarne] = useState('');
+    const [opcionais, setOpcionais] = useState<string[]>([]);
 
     const handleCheckboxChange = (event: any) => {
         const { value, checked } = event.target;
         if (checked) {
-            setOpcionaisSelecionados([...opcionaisSelecionados, value]);
+            setOpcionais([...opcionais, value]);
         } else {
-            setOpcionaisSelecionados(opcionaisSelecionados.filter(opcional => opcional !== value));
+            setOpcionais(opcionais.filter(opcional => opcional !== value));
         }
     };
-    //coletando_dados_do_formulario.
-
+    // Enviando dados do formilario para o getFormData
     const handleSubmit = (event: any) => {
         event.preventDefault();
-        // Aqui você pode processar os dados como desejar, como enviar para um backend ou fazer outras operações.
-        console.log('Nome do Cliente:', nomeCliente);
-        console.log('Pão Selecionado:', paoSelecionado);
-        console.log('Carne Selecionada:', carneSelecionada);
-        console.log('Opcionais Selecionados:', opcionaisSelecionados);
+        createNewRequest({ nome, pao, carne, opcionais });
     };
 
     return (
@@ -37,20 +30,20 @@ const RegisterScreen = () => {
             <form onSubmit={handleSubmit}>
                 <h2>MONTE SEU HAMBURGUER</h2>
                 <div className="input-area">
-                    <p>Nome do Cliente:</p>
+                    <p>Nome:</p>
                     <input 
                         type="text" 
                         placeholder='Digite aqui...'
-                        value={nomeCliente}
-                        onChange={(event) => setNomeCliente(event.target.value)}
+                        value={nome}
+                        onChange={(event) => setNome(event.target.value)}
                     />
                 </div>
 
                 <div className="input-area">
                     <p>Escolha o pão:</p>
                     <select 
-                        value={paoSelecionado}
-                        onChange={(event) => setPaoSelecionado(event.target.value)}
+                        value={pao}
+                        onChange={(event) => setPao(event.target.value)}
                     >
                         <option value="">Selecione...</option>
                         {
@@ -64,8 +57,8 @@ const RegisterScreen = () => {
                 <div className="input-area">
                     <p>Escolha a carne:</p>
                     <select 
-                        value={carneSelecionada}
-                        onChange={(event) => setCarneSelecionada(event.target.value)}
+                        value={carne}
+                        onChange={(event) => setCarne(event.target.value)}
                     >
                         <option value="">Selecione...</option>
                         {
@@ -85,7 +78,7 @@ const RegisterScreen = () => {
                                     type="checkbox" 
                                     value={item.tipo} 
                                     name='value'
-                                    checked={opcionaisSelecionados.includes(item.tipo)}
+                                    checked={opcionais.includes(item.tipo)}
                                     onChange={handleCheckboxChange}
                                 />
                                 <label htmlFor="value">{item.tipo}</label>
