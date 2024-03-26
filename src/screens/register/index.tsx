@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { DataForm } from '../../context/getFormData';
 import { Container } from './styles';
 
@@ -54,7 +54,7 @@ const RegisterScreen = () => {
                     >
                         <option value="">Selecione...</option>
                         {
-                            ingredients.paes?.map((item) => (
+                            ingredients.paes?.map((item: any) => (
                                 <option key={item.id} value={item.tipo}>{item.tipo}</option>
                             ))
                         }
@@ -69,7 +69,7 @@ const RegisterScreen = () => {
                     >
                         <option value="">Selecione...</option>
                         {
-                            ingredients.carnes?.map((item) => (
+                            ingredients.carnes?.map((item: any) => (
                                 <option key={item.id} value={item.tipo}>{item.tipo}</option>
                             ))
                         }
@@ -79,7 +79,7 @@ const RegisterScreen = () => {
                 <div className="input-area checkbox-area">
                     <p>Selecione os opcionais:</p>
                     {
-                        ingredients.opcionais?.map((item) => (
+                        ingredients.opcionais?.map((item: any) => (
                             <div className='checkbox-option' key={item.id}>
                                 <input 
                                     type="checkbox" 
