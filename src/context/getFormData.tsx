@@ -1,8 +1,5 @@
 /*==> Responsavel pelos dados contidos nos compos do formulario durante a criação do pedido <==*/
 
-// os arrays estão funcionanado e acredito que o fatch tambem.
-// erro de tranferencia de dados na hora de passar pelo children.
-
 
 import React, {
   createContext,
@@ -10,15 +7,12 @@ import React, {
   useState
 } from 'react';
 
-type TypeProps = {
-  id: number;
-  tipo: string;
-}[]
-
 type DataFormProps = {
-  paes: TypeProps,
-  carnes: TypeProps,
-  opcionais: TypeProps
+  ingredients: {
+    paes: {id: number, tipo: string}[],
+    carnes:  {id: number, tipo: string}[],
+    opcionais:  {id: number, tipo: string}[],
+  }
 }
 
 
@@ -27,9 +21,7 @@ export const DataForm = createContext<DataFormProps>({} as DataFormProps);
 //fornecedor da camada .index
 export const RegisterProvider = ({ children }: { children: React.ReactNode }) => {
 
-  const [paes, setPaes] = useState<TypeProps>([]);
-  const [carnes, setCarnes] = useState<TypeProps>([]);
-  const [opcionais, setOpcionais] = useState<TypeProps>([]);
+  const [ ingredients, setIngredients ] = useState({});
 
   useEffect(() => {
     //Resgata os pedidos
@@ -38,9 +30,7 @@ export const RegisterProvider = ({ children }: { children: React.ReactNode }) =>
         const response = await fetch('http://localhost:3000/ingredientes');
         const data = await response.json();
 
-        setPaes(data.paes);
-        setCarnes(data.carnes);
-        setOpcionais(data.opcionais);
+        setIngredients(data);
 
       } catch (error) {
         console.error('Erro ao buscar dados:', error);
@@ -49,7 +39,7 @@ export const RegisterProvider = ({ children }: { children: React.ReactNode }) =>
 
     getIngredients()
 
-  }, [paes, carnes, opcionais]);
+  }, [ingredients]);
 
 
   async function createNewRequest() {
@@ -62,7 +52,7 @@ export const RegisterProvider = ({ children }: { children: React.ReactNode }) =>
 
 
   return (
-    <DataForm.Provider value={{ paes, carnes, opcionais }}>
+    <DataForm.Provider value={{ ingredients }}>
       <>{children}</>
     </DataForm.Provider>
   )

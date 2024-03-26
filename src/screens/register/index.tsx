@@ -5,7 +5,7 @@ import { Container } from './styles';
 
 
 const RegisterScreen = () => {
-    const { paes, carnes, opcionais } = useContext(DataForm);
+    const { ingredients } = useContext(DataForm);
 
     //dados_coletados_do_formulario.
     const [nomeCliente, setNomeCliente] = useState('');
@@ -54,7 +54,7 @@ const RegisterScreen = () => {
                     >
                         <option value="">Selecione...</option>
                         {
-                            paes?.map((item) => (
+                            ingredients.paes?.map((item) => (
                                 <option key={item.id} value={item.tipo}>{item.tipo}</option>
                             ))
                         }
@@ -69,7 +69,7 @@ const RegisterScreen = () => {
                     >
                         <option value="">Selecione...</option>
                         {
-                            carnes?.map((item) => (
+                            ingredients.carnes?.map((item) => (
                                 <option key={item.id} value={item.tipo}>{item.tipo}</option>
                             ))
                         }
@@ -79,7 +79,7 @@ const RegisterScreen = () => {
                 <div className="input-area checkbox-area">
                     <p>Selecione os opcionais:</p>
                     {
-                        opcionais?.map((item) => (
+                        ingredients.opcionais?.map((item) => (
                             <div className='checkbox-option' key={item.id}>
                                 <input 
                                     type="checkbox" 
