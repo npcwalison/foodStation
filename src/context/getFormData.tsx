@@ -27,60 +27,9 @@ export const DataForm = createContext<DataFormProps>({} as DataFormProps);
 //fornecedor da camada .index
 export const RegisterProvider = ({ children }: { children: React.ReactNode }) => {
 
-  const [paes, setPaes] = useState<TypeProps>([
-    {
-      "id": 1,
-      "tipo": "Italiano Branco"
-    },
-    {
-      "id": 2,
-      "tipo": "3 Queijos"
-    },
-    {
-      "id": 3,
-      "tipo": "Parmesão e Orégano"
-    },
-    {
-      "id": 4,
-      "tipo": "Integral"
-    }
-  ]);
-  const [carnes, setCarnes] = useState<TypeProps>([
-    {
-      "id": 1,
-      "tipo": "Maminha"
-    },
-    {
-      "id": 2,
-      "tipo": "Alcatra"
-    },
-    {
-      "id": 3,
-      "tipo": "Picanha"
-    },
-    {
-      "id": 4,
-      "tipo": "Veggie burger"
-    }
-  ]);
-  const [opcionais, setOpcionais] = useState<TypeProps>([
-    {
-      "id": 1,
-      "tipo": "Bacon"
-    },
-    {
-      "id": 2,
-      "tipo": "Cheddar"
-    },
-    {
-      "id": 3,
-      "tipo": "Salame"
-    },
-    {
-      "id": 4,
-      "tipo": "Tomate"
-    }
-  ]);
+  const [paes, setPaes] = useState<TypeProps>([]);
+  const [carnes, setCarnes] = useState<TypeProps>([]);
+  const [opcionais, setOpcionais] = useState<TypeProps>([]);
 
   useEffect(() => {
     //Resgata os pedidos
