@@ -9,9 +9,9 @@ import React, {
 
 type DataFormProps = {
   ingredients: {
-    paes: {id: number, tipo: string}[],
-    carnes:  {id: number, tipo: string}[],
-    opcionais:  {id: number, tipo: string}[],
+    paes: [id: number, tipo: string][],
+    carnes:  [id: number, tipo: string][],
+    opcionais:  [id: number, tipo: string][],
   }
 }
 
@@ -21,7 +21,11 @@ export const DataForm = createContext<DataFormProps>({} as DataFormProps);
 //fornecedor da camada .index
 export const RegisterProvider = ({ children }: { children: React.ReactNode }) => {
 
-  const [ ingredients, setIngredients ] = useState({});
+  const [ ingredients, setIngredients ] = useState({
+    paes: [],
+    carnes: [],
+    opcionais: []
+  });
 
   useEffect(() => {
     //Resgata os pedidos
