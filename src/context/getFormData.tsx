@@ -52,7 +52,7 @@ export const RegisterProvider = ({ children }: { children: React.ReactNode }) =>
     console.log('Dados recebidos:', formData); //26.03.2024-14:43-Recebendo_com_SUCESSO!!
 
     // Exemplo de envio dos dados para um backend utilizando fetch
-    fetch('http://localhost:3000/pedido', {
+    fetch('http://localhost:3000/burgers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
