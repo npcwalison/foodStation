@@ -34,12 +34,14 @@ Este aplicativo é útil para estabelecimentos de fast-food, food trucks ou rest
 | react-router-dom     | [Site oficial](https://reactrouter.com/en/main)        |
 | react-icons          | [Site oficial](https://react-icons.github.io/react-icons/)           |
 | Json-Server                | [Site oficial](https://www.npmjs.com/package/json-server)                              |
-| Axios                | [Site oficial](https://axios-http.com/)                       |
+| Fatch                | [Site oficial](https://www.npmjs.com/package/fetch)                       |
 
 ## Instruções de Instalação
 1. Clone o repositório.
 2. Instale as dependências usando `npm install`.
-3. Inicie o aplicativo com `npm start`.
+3. Inicie o aplicativo com `npm run tauri dev`.
+4. Inicie o backend `npm run backend`.
+5. Complile o aplicativo `npm run build`.
 
 ## Contribuição
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
